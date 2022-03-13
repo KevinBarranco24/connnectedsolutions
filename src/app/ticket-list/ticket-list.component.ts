@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-ticket-list',
@@ -6,23 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
-sub!: subscription;
-
+  pageTitle = "Tickets";
+  
   constructor() { }
   
-tickets: ITicket[] = [];
-
   ngOnInit(): void {
-    this.sub = this.ticketsService.getTickets().subscribe({
-      next: tickets => {
-        this.tickets = tickets;
-      },
-      error: err => this.errorMessage = err
-    });
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
-
 }
