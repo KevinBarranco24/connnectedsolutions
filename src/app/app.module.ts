@@ -10,6 +10,8 @@ import { ContactComponent } from './contact/contact.component';
 import { CreateComponent } from './create/create.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CategoriesComponent } from './categories/categories.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

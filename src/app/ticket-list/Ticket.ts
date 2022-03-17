@@ -1,7 +1,6 @@
-export interface ITicket {
-    created: string;
-    owner: string;
-    email: string;
-    location: string;
-    comments: string;
+export class Ticket{
+    username: string = "";
+    location: string = "";
+    datetime: string = "";
+    description: string = "";
 }
