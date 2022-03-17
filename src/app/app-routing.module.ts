@@ -6,6 +6,8 @@ import { ContactComponent } from './contact/contact.component';
 import { CreateComponent } from './create/create.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { RegisterComponent } from './register/register.component';
+import { StarsesionComponent } from './starsesion/starsesion.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 
 const routes: Routes = [
@@ -26,6 +28,12 @@ const routes: Routes = [
   },
   {
     path: 'Crear-TIcket', component: CreateComponent
+  },
+  {
+    path: 'Login', component: StarsesionComponent 
+  },
+  {
+    path: 'Sign_Up', component: RegisterComponent
   },
   {
     path: '**', component: PagenotfoundComponent

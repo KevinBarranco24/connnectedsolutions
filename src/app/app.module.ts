@@ -10,6 +10,8 @@ import { ContactComponent } from './contact/contact.component';
 import { CreateComponent } from './create/create.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { RegisterComponent } from './register/register.component';
+import { StarsesionComponent } from './starsesion/starsesion.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CategoriesComponent } from './categories/categories.component';
     ContactComponent,
     CreateComponent,
     TicketListComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    RegisterComponent,
+    StarsesionComponent
   ],
   imports: [
     BrowserModule,

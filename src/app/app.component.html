@@ -18,7 +18,9 @@
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" routerLink="">Connected Solutions</a>
+      <a class="navbar-brand" routerLink="">
+        <img src="../assets/images/logo/cs_300.png" alt="" width="40" height="40">
+        Connected Solutions</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMarkup">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,7 +47,14 @@
             <ul class="dropdown-menu">
               <li><a routerLink="/Categorias" class="dropdown-item">Categories</a></li>
               <li><a routerLink="#" class="dropdown-item">Locations</a></li>
+              <li><a routerLink="/**" class="dropdown-item">Error 404</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a routerLink="Sign_Up" class="nav-link">Registrarse</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="Login" class="nav-link">Iniciar Sesión</a>
           </li>
         </ul>
       </div>
@@ -54,7 +63,7 @@
   <div class="container">
     <!--Placeholder-->
     <router-outlet></router-outlet>
-
+    <!---->
     <hr />
     <footer>&copy; 2022 - Connected Solutions</footer>
   </div>

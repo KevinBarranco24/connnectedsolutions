@@ -1,1 +1,70 @@
-<p>ticket-list works!</p>
+<div class="container">
+    <h2>{{pageTitle}}</h2>
+    <p>Tickets abiertos</p>
+    <hr />
+    <div class="container">
+        <form action="/dashboard.html" method="GET">
+            <div class="row">
+                <h4>Seleccione una fecha de inicio y una final para filtrar los resultados</h4>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="form-label col-sm-5 col-lg-2">Desde</label>
+                    <input type="datetime-local" id="startdate" name="startdate"> 
+                </div>
+                <div class="form-group col-sm-5">
+                    <label class="form-label col-sm-5 col-lg-2">Hasta</label>
+                    <input type="datetime-local" id="enddate" name="startdate"> 
+                </div>
+                <div class="col-lg-2">
+                    <input type="submit" class="btn btn-danger" value="Filter"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr />
+    <table class="table table-hover table-borderless">
+        <thead>
+            <tr>
+                <th>Fecha de creación</th>
+                <th>Requisitor</th>
+                <th>Ubicación</th>
+                <th>Comentarios</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="cursor: pointer;" >
+                    <td>2022/03/01 11:32 am</td>
+                    <td>
+                        <span>Francisco H.</span>
+                        <p class="text-muted">franciscojavier.hernandez1@molex.com</p>
+                    </td>
+                    <td>PCB's</td>
+                    <td>Help, we need help. thx.</td>
+            </tr>
+            <tr  style="cursor: pointer;" >
+                <td>2022/03/01 14:02 am</td>
+                <td>Kevin K.
+                    <p class="text-muted">kevink.barranco@cucei.udg.com</p>
+                </td>
+                <td>Coordinación</td>
+                <td>Ayuda banda, no puedo controlar a Angel.</td>
+            </tr>
+            <tr  style="cursor: pointer;" >
+                <td>2022/03/01 15:21 am</td>
+                <td>Cedar A.
+                    <p class="text-muted">cesar.alarcon@tata.com</p>
+                </td>
+                <td>En el baño del edificio titanic</td>
+                <td>No hay papel we :'v</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pager text-center">
+        <a class="btn btn-danger" type="button" href="dashboard.html?page=1">1</a>
+        <a class="btn btn-danger" type="button" href="dashboard.html?page=2">2</a>
+        <a class="btn btn-danger" type="button" href="dashboard.html?page=3">3</a>
+    </div>
+    <hr />
+    <footer>&copy; 2022 - Connected Solutions</footer>
+</div>

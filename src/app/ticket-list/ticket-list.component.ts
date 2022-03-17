@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-ticket-list',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
-
+  pageTitle = "Tickets";
+  
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void {
+  }
 }
