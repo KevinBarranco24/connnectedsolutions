@@ -1,7 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 .jumbotron{
     background-color: gainsboro;
-    border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: .6rem;
+    border-bottom-right-radius: .6rem;
     padding: 5%;
+}
+.bg-azul-1{
+    background-color: #012A4A;
+}
+.bg-azul-2{
+    background-color: #013A63;
+}
+.bg-azul-3{
+    background-color: #01497C;
+}
+.bg-azul-4{
+    background-color: #014F86;
+}
+.bg-azul-5{
+    background-color: #2A6F97;
+}
+.bg-azul-6{
+    background-color: #2C7DA0;
+}
+.bg-azul-7{
+    background-color: #468FAF;
+}
+.bg-azul-8{
+    background-color: #61A5C2;
+}
+.bg-azul-9{
+    background-color: #89C2D9;
+}
+.bg-azul-10{
+    background-color: #A9D6E5;
 }

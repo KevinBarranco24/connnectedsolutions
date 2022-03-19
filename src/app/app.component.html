@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-azul-1">
     <div class="container">
       <a class="navbar-brand" routerLink="">Connected Solutions</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMarkup">
@@ -44,8 +44,7 @@
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">Settings</a>
             <ul class="dropdown-menu">
               <li><a routerLink="/Categorias" class="dropdown-item">Categories</a></li>
-              <li><a routerLink="#" class="dropdown-item">Locations</a></li>
-              <li><a routerLink="/**" class="dropdown-item">Error 404</a></li>
+              <li><a routerLink="/Categorias" class="dropdown-item">Locations</a></li>
             </ul>
           </li>
         </ul>
@@ -54,7 +53,8 @@
   </nav>
   <div class="container">
     <!--Placeholder-->
-    <router-outlet></router-outlet>
+    
+      <router-outlet></router-outlet>
     <!---->
     <hr />
     <footer>&copy; 2022 - Connected Solutions</footer>

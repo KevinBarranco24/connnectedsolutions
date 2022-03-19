@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Ticket } from '../ticket-list/Ticket';
-import { TicketService } from '../ticket-list/ticketService.service';
+import { Ticket } from '../Models/Ticket';
+import { TicketService } from '../Services/ticketService.service';
 
 @Component({
   selector: 'app-create',
@@ -12,9 +12,9 @@ export class CreateComponent implements OnInit {
 
   constructor(private ticketService: TicketService) { }
 
-  addTicket(){
-    this.ticketService.addTickets(this.ticket).subscribe();
-  }
+  // addTicket(){
+  //   this.ticketService.addTickets(this.ticket).subscribe();
+  // }
 
   ngOnInit(): void {
   }

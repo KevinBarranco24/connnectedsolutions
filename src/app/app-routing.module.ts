@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'Tickets', component: TicketListComponent
   },
   {
-    path: 'Crear-TIcket', component: CreateComponent
+    path: 'Crear-ticket', component: CreateComponent
   },
   {
     path: '**', component: PagenotfoundComponent

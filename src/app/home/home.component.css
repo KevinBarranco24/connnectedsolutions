@@ -1,0 +1,17 @@
+h1{
+    font-size: 3.5em;
+}
+.tarjeta{
+    border-radius: 50rem;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    transition: 0.16s;
+    background-color: gainsboro;
+}
+.tarjeta:hover{
+    color: gainsboro;
+    transform: scale(1.05);
+    background-color: #468FAF;
+    box-shadow: 0 .025rem 1.75rem #A9D6E5;
+}

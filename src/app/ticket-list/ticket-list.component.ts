@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Ticket } from './Ticket';
-import { TicketService } from './ticketService.service';
+import { Ticket } from '../Models/Ticket';
+import { TicketService } from '../Services/ticketService.service';
 
 @Component({
   selector: 'app-ticket-list',
@@ -9,16 +9,16 @@ import { TicketService } from './ticketService.service';
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
-  pageTitle = "Tickets";
-  ticketList: Ticket[] = [];
-  err: string  = "";
+  _ticketList: Ticket[] = [];
   sub!: Subscription;
 
   constructor(private ticketService: TicketService) { }
   
   ngOnInit(): void {
+    this.sub = this.ticketService.getTickets().subscribe({next: data => this._ticketList = data});      
   }
 
   ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
