@@ -7,30 +7,32 @@
         <div class="row mb-2">
             <label for="username" required class="col-md-2 col-form-label text-end">Nombre</label>
             <div class="col-md-7 col-lg-5">
-                <input class="form-control" name="username" id="username" type="text" placeholder="Ingrese su nombre..."/>
+                <input class="form-control" name="username" id="username" type="text" placeholder="Ingrese su nombre..." [(ngModel)]="username"/>
             </div>
         </div>
         <div class="row mb-2">
             <label for="location" class="col-md-2 col-form-label text-end">Ubicaión</label>
             <div class="col-md-7 col-lg-5">
-                <input class="form-control" name="location" id="location" type="text" placeholder="Proporcione una ubicación"/>
+                <select name="location" id="location" class="form-select" [(ngModel)]="location">
+                    <option *ngFor="let T of ubicaciones">{{T.nombre}}</option>
+                </select>
             </div>
         </div>
         <div class="row mb-2">
             <label for="datetime" class="col-md-2 col-form-label text-end">Date Time</label>
             <div class="col-md-7 col-lg-5">
-                <input class="form-control" name="datetime" id="datetime" type="text" readonly value="2022/03/01 11:30 am"/>
+                <input type="datetime-local" id="datetime" name="datetime" [(ngModel)]="datetime">
             </div>
         </div>
         <div class="row mb-4">
             <label for="description" class="col-md-2 col-form-label text-end">Descripción del problema</label>
             <div class="col-md-7 col-lg-5">
-                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Proporcione una descripción detallada del problema"></textarea>
+                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Proporcione una descripción detallada del problema" [(ngModel)]="description"></textarea>
             </div>
         </div>
         <div class="row mb-4">
             <div class="offset-md-2 col-md-10">
-                <input class="btn btn-danger m-2" type="submit" value="Enviar"/>
+                <input class="btn btn-danger m-2" type="submit" value="Enviar" (click)="addTicket()"/>
                 <a class="btn btn-secondary" href="/index.html">Regresar al inicio</a>
             </div>
         </div>

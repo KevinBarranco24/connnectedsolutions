@@ -1,4 +1,4 @@
-export class Categoria{
+export class Ubicacion{
     nombre: string = "";
     requisitor: string = "";
     descripcion: string = "";

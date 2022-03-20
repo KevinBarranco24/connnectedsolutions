@@ -1,8 +1,49 @@
-<table *ngFor="let cat of categorias">
-    <tr>
-        <th>Nombre</th>
-    </tr>
-    <tr>
-        <td>{{cat.nombre}}</td>
-    </tr>
-</table>
+<h1>Categorías</h1><hr />
+<div class="card shadow-lg p-3 mb-5 mt-4 bg-body rounded">
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-4">
+                        <label class="form-label" for="categoryName">Nombre de la categoría</label>
+                        <input class="form-control" id="categoryName" type="text" placeholder="Nueva categoría">
+                        <div class="form-text">Escriba el nombre de la nueva categoría.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="requisitorName">Nombre del requisitor</label>
+                        <input class="form-control" id="requisitorName" type="text" placeholder="Escriba su nombre">
+                        <div class="form-text">El nombre de la persona que va a agregar la categoría.</div>
+                    </div>
+                    <div class="mb-4 text-end">
+                        <div class="btn-group">
+                            <input type="button" class="btn btn-danger" value="Guardar">
+                            <a type="button" class="btn btn-secondary" href="/index.html">Regresar al inicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Categorías</h3>
+                    <hr />
+                    <table *ngIf="categorias" class="table table-hover table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Categorías</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let T of categorias">
+                                <td>{{T.nombre}}</td>
+                                <td>{{T.descripcion}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

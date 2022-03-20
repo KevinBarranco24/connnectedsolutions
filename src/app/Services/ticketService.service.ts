@@ -8,15 +8,20 @@ import { Ticket } from "../Models/Ticket";
 })
 
 export class TicketService {
-    private ticketUrl = 'src/API/Tickets.json';
     constructor(private http: HttpClient) { }
+    _ticketList: Ticket[] = []
 
-    getTickets(): Observable<Ticket[]>{
-        // return this.http.get<Ticket[]>(this.ticketUrl);
-        return this.http.get<Ticket[]>(this.ticketUrl).pipe
-        (tap(data => console.log("All: ", JSON.stringify(data))),
-        catchError(this.handleError));
+    getTickets(): Ticket[]{
+        return this._ticketList;
     }
+
+    addTicket(t: Ticket){
+        this._ticketList.push(t);
+    }
+
+    // getTickets(): Observable<Ticket[]>{
+    //     return this.http.get<Ticket[]>(this.ticketUrl);
+    // }
 
     // addTickets(ticket: Ticket): Observable<any>{
     //     const headers = {'content-type':'application/json'}

@@ -5,6 +5,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreateComponent } from './create/create.component';
 import { HomeComponent } from './home/home.component';
+import { LocationsComponent } from './locations/locations.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path: 'Crear-ticket', component: CreateComponent
+  },
+  {
+    path: 'Ubicaciones', component: LocationsComponent
   },
   {
     path: '**', component: PagenotfoundComponent

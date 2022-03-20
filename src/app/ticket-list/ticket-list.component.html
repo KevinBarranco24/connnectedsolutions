@@ -1,25 +1,23 @@
-<h2>Tickets</h2>
+<h1>Tickets</h1>
 <p>Tickets abiertos</p>
 <hr />
 <div class="container">
-    <form action="/dashboard.html" method="GET">
-        <div class="row">
-            <h4>Seleccione una fecha de inicio y una final para filtrar los resultados</h4>
+    <div class="row">
+        <h4>Seleccione una fecha de inicio y una final para filtrar los resultados</h4>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-5">
+            <label class="form-label col-sm-5 col-lg-2">Desde</label>
+            <input type="datetime-local" id="startdate" name="startdate"> 
         </div>
-        <div class="row">
-            <div class="form-group col-md-5">
-                <label class="form-label col-sm-5 col-lg-2">Desde</label>
-                <input type="datetime-local" id="startdate" name="startdate"> 
-            </div>
-            <div class="form-group col-sm-5">
-                <label class="form-label col-sm-5 col-lg-2">Hasta</label>
-                <input type="datetime-local" id="enddate" name="startdate"> 
-            </div>
-            <div class="col-lg-1 col-1">
-                <input type="submit" class="btn btn-danger" value="Filter"/>
-            </div>
+        <div class="form-group col-sm-5">
+            <label class="form-label col-sm-5 col-lg-2">Hasta</label>
+            <input type="datetime-local" id="enddate" name="enddate"> 
         </div>
-    </form>
+        <div class="col-lg-1 col-1">
+            <input type="submit" class="btn btn-danger" value="Filter"/>
+        </div>
+    </div>
 </div>
 <hr />
 <table *ngIf="_ticketList" class="table table-hover table-borderless">
@@ -33,9 +31,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let T of _ticketList">
-            <td>
-                {{T.username}}
-            </td>
+            <td>{{T.datetime}}</td>
+            <td>{{T.username}}</td>
+            <td>{{T.location}}</td>
+            <td>{{T.description}}</td>
         </tr>
     </tbody>
 </table>
+<hr />
+<div class="mb-4 text-center">
+    <div class="btn-group">
+        <a type="button" class="btn btn-danger" href="/index.html">Regresar al inicio</a>
+    </div>
+</div>

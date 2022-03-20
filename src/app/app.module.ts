@@ -12,6 +12,7 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     CreateComponent,
     TicketListComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    LocationsComponent
   ],
   imports: [
     BrowserModule,
