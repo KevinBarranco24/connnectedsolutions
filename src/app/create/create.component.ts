@@ -1,33 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Ubicacion } from '../Models/Location';
-import { Ticket } from '../Models/Ticket';
-import { locationService } from '../Services/locations.service';
-import { TicketService } from '../Services/ticketService.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Location } from '../Models/Location';
+import { locationService } from '../Services/location.service';
 
 @Component({
-  selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit {
-  ubicaciones: Ubicacion[] = [];
-  t: Ticket = new Ticket;
-  username: string = "";
-  datetime: string = "";
-  location: string = "";
-  description: string = "";
-
-  constructor(private ts: TicketService, private ls: locationService) { }
-
-  addTicket(){
-    this.t.username = this.username;
-    this.t.location = this.location;
-    this.t.datetime = this.datetime;
-    this.t.description = this.description;
-    this.ts.addTicket(this.t);
-  }
+export class CreateComponent implements OnInit, OnDestroy {
+  constructor(private ls: locationService) { }
+  _locations: Location[] = [];
+  private sub!: Subscription;
 
   ngOnInit(): void {
-    this.ubicaciones = this.ls.getLocations();
+    this.sub = this.ls.GetLocations().subscribe(data => this._locations = data);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

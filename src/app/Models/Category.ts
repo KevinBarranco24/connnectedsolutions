@@ -1,5 +1,5 @@
-export class Categoria{
-    nombre: string = "";
-    requisitor: string = "";
-    descripcion: string = "";
+export class Category{
+    name: string = "";
+    owner: string = "";
+    description: string = "";
 }

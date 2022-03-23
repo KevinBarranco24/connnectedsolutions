@@ -1,5 +1,5 @@
-export class Ubicacion{
-    nombre: string = "";
-    requisitor: string = "";
-    descripcion: string = "";
+export class Location {
+    name: string = "";
+    owner: string = "";
+    description: string = "";
 }

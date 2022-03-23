@@ -1,31 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { Ubicacion } from '../Models/Location';
-import { locationService } from '../Services/locations.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { locationService } from '../Services/location.service';
+import { Location } from '../Models/Location';
 
 @Component({
-  selector: 'app-locations',
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.css']
 })
-export class LocationsComponent implements OnInit {
-  ub: Ubicacion = new Ubicacion;
-  ubicacion: string  = "";
-  descripcion: string = "";
-  requisitor: string = "";
+export class LocationsComponent implements OnInit, OnDestroy {
+  constructor(private http: HttpClient, private ls: locationService) { }
+  _locations: Location[] = []
+  private sub!: Subscription;
 
-  ubicaciones: Ubicacion[] = []
-  constructor(private ls: locationService) { }
+  name: string = "";
+  owner: string  = "";
+  description: string = "";
 
   ngOnInit(): void {
-    this.ubicaciones = this.ls.getLocations();
+    this.sub = this.ls.GetLocations().subscribe(data => this._locations = data);
   }
-
-  addLocation(){
-    this.ub.nombre = this.ubicacion;
-    this.ub.descripcion = this.descripcion;
-    this.ub.requisitor = this.requisitor;
-    this.ls.addLocation(this.ub);
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }
