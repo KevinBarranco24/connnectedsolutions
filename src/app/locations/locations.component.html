@@ -1,7 +1,7 @@
 <h1>Ubicaciones</h1><hr />
 <div class="card shadow-lg p-3 mb-5 mt-4 bg-body rounded">
     <div class="row">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-body">
                     <div class="mb-4">
@@ -22,14 +22,14 @@
                     <hr />
                     <div class="mb-4 text-end">
                         <div class="btn-group">
-                            <input type="button" class="btn btn-danger" value="Guardar">
+                            <input type="button" class="btn btn-danger" value="Guardar" (click)="save()">
                             <a type="button" class="btn btn-secondary" href="/index.html">Regresar al inicio</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-8">
+        <div class="col-md-6 col-lg-9">
             <div class="card">
                 <div class="card-body">
                     <h3>Ubicaciones</h3>
@@ -37,12 +37,14 @@
                     <table *ngIf="_locations" class="table table-hover table-borderless">
                         <thead>
                             <tr>
+                                <th>Creador</th>
                                 <th>Ubicación</th>
                                 <th>Descripción</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let T of _locations">
+                                <td>{{T.owner}}</td>
                                 <td>{{T.name}}</td>
                                 <td>{{T.description}}</td>
                             </tr>

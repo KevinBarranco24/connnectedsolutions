@@ -1,6 +1,7 @@
 export class Ticket{
     username: string = "";
     location: string = "";
-    datetime: string = "";
+    category: string = "";
+    datetime: Date = new Date;
     description: string = "";
 }

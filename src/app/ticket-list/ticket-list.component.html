@@ -7,11 +7,11 @@
     </div>
     <div class="row">
         <div class="form-group col-md-5">
-            <label class="form-label col-sm-5 col-lg-2">Desde</label>
+            <label class="form-label col-sm-5 col-lg-2 fw-bolder">Desde</label>
             <input type="datetime-local" id="startdate" name="startdate"> 
         </div>
         <div class="form-group col-sm-5">
-            <label class="form-label col-sm-5 col-lg-2">Hasta</label>
+            <label class="form-label col-sm-5 col-lg-2 fw-bolder">Hasta</label>
             <input type="datetime-local" id="enddate" name="enddate"> 
         </div>
         <div class="col-lg-1 col-1">
@@ -26,14 +26,16 @@
             <th>Fecha de creación</th>
             <th>Requisitor</th>
             <th>Ubicación</th>
+            <th>Categoría</th>
             <th>Comentarios</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let T of _ticketList">
-            <td>{{T.datetime}}</td>
+            <td>{{T.datetime | date:'medium'}}</td>
             <td>{{T.username}}</td>
             <td>{{T.location}}</td>
+            <td>{{T.category}}</td>
             <td>{{T.description}}</td>
         </tr>
     </tbody>
@@ -41,6 +43,7 @@
 <hr />
 <div class="mb-4 text-center">
     <div class="btn-group">
+        <a type="button" class="btn btn-secondary" routerLink="/Crear-ticket" >Crear Ticket</a>
         <a type="button" class="btn btn-danger" href="/index.html">Regresar al inicio</a>
     </div>
 </div>

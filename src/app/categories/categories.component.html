@@ -1,29 +1,35 @@
 <h1>Categorías</h1><hr />
 <div class="card shadow-lg p-3 mb-5 mt-4 bg-body rounded">
     <div class="row">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-4 col-lg-3">
             <div class="card">
                 <div class="card-body">
                     <div class="mb-4">
                         <label class="form-label" for="categoryName">Nombre de la categoría</label>
-                        <input class="form-control" id="categoryName" type="text" placeholder="Nueva categoría">
+                        <input required class="form-control" id="categoryName" type="text" placeholder="Nueva categoría" [(ngModel)]="name">
                         <div class="form-text">Escriba el nombre de la nueva categoría.</div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label" for="requisitorName">Nombre del requisitor</label>
-                        <input class="form-control" id="requisitorName" type="text" placeholder="Escriba su nombre">
+                        <input required class="form-control" id="requisitorName" type="text" placeholder="Escriba su nombre" [(ngModel)]="owner">
                         <div class="form-text">El nombre de la persona que va a agregar la categoría.</div>
                     </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="description">Descripción</label>
+                        <textarea class="form-control" rows="4" name="description" id="description" placeholder="Proporcione una breve descripción de la categoría" [(ngModel)]="description"></textarea>
+                        <div class="form-text">Una breve descripción de la categoría, <span style="color: crimson;">¿Algo <b>característico</b> que lo distinga?.</span></div>
+                    </div>
+                    <hr />
                     <div class="mb-4 text-end">
                         <div class="btn-group">
-                            <input type="button" class="btn btn-danger" value="Guardar">
+                            <input type="button" class="btn btn-danger" value="Guardar" (click)="save()">
                             <a type="button" class="btn btn-secondary" href="/index.html">Regresar al inicio</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-8">
+        <div class="col-md-8 col-lg-9">
             <div class="card">
                 <div class="card-body">
                     <h3>Categorías</h3>
@@ -31,12 +37,14 @@
                     <table *ngIf="_categories" class="table table-hover table-borderless">
                         <thead>
                             <tr>
+                                <th>Creador</th>
                                 <th>Categorías</th>
                                 <th>Descripción</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let T of _categories">
+                                <td>{{T.owner}}</td>
                                 <td>{{T.name}}</td>
                                 <td>{{T.description}}</td>
                             </tr>

@@ -1,22 +1,38 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Category } from '../Models/Category';
+import { Component, OnInit } from '@angular/core';
+import { Category } from '../models/Category';
 import { CategoryService } from '../Services/category.service';
 
 @Component({
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent implements OnInit, OnDestroy {
+export class CategoriesComponent implements OnInit {
+  name: string = "";
+  owner: string = "";
+  description: string = "";
+
+
   constructor(private http: HttpClient, private cs: CategoryService) { }
   _categories: Category[] = []
-  sub!: Subscription;
 
   ngOnInit(): void {
-    this.sub = this.cs.GetCategories().subscribe(data => this._categories = data);
+    this._categories = this.cs.GetCategories();
   }
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+
+  save(){
+    this.description = this.description == "" ? "No se proporcionó una descripción." : this.description;
+    if(this.name != "" && this.owner != ""){
+      this._categories.push(
+        {
+          name: this.name,
+          owner: this.owner,
+          description: this.description
+        }
+      );
+      this.name = "";
+      this.owner = "";
+      this.description = "";
+    }
   }
 }

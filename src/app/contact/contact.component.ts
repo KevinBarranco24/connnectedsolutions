@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  user = '../../assets/users/contact.png';
   constructor() { }
 
   ngOnInit(): void {

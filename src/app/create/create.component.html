@@ -7,34 +7,43 @@
         <div class="row mb-2">
             <label for="username" required class="col-md-2 col-form-label text-end">Nombre</label>
             <div class="col-md-7 col-lg-5">
-                <input class="form-control" name="username" id="username" type="text" placeholder="Ingrese su nombre..."/>
+                <input class="form-control" name="username" id="username" type="text" placeholder="Ingrese su nombre..." [(ngModel)]="username"/>
             </div>
         </div>
         <div class="row mb-2">
             <label for="location" class="col-md-2 col-form-label text-end">Ubicaión</label>
             <div class="col-md-7 col-lg-5">
-                <select name="location" id="location" class="form-select">
+                <select name="location" id="location" class="form-select" [(ngModel)]="location">
                     <option *ngFor="let T of _locations">{{T.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <label for="category" class="col-md-2 col-form-label text-end">Categoría</label>
+            <div class="col-md-7 col-lg-5">
+                <select name="category" id="category" class="form-select" [(ngModel)]="category">
+                    <option *ngFor="let T of _categories">{{T.name}}</option>
                 </select>
             </div>
         </div>
         <div class="row mb-2">
             <label for="datetime" class="col-md-2 col-form-label text-end">Date Time</label>
             <div class="col-md-7 col-lg-5">
-                <input type="datetime-local" id="datetime" name="datetime">
+                <input class="form-control" type="text" disabled id="datetime" name="datetime" value={{datetime}}>
             </div>
         </div>
         <div class="row mb-4">
             <label for="description" class="col-md-2 col-form-label text-end">Descripción del problema</label>
             <div class="col-md-7 col-lg-5">
-                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Proporcione una descripción detallada del problema"></textarea>
+                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Proporcione una descripción detallada del problema" [(ngModel)]="description"></textarea>
             </div>
         </div>
         <div class="offset-md-2 col-md-10">
             <div class="btn-group">
-                <input type="button" class="btn btn-danger" value="Guardar">
+                <input type="button" class="btn btn-danger" value="Guardar" (click)="save()">
                 <a type="button" class="btn btn-secondary" href="/index.html">Regresar al inicio</a>
             </div>
+            <a type="button" class="btn btn-success offset-md-2" routerLink="/Tickets">Ver tickets</a>
         </div>
     </form>
 </div>

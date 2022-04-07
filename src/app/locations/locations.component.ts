@@ -1,27 +1,36 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { locationService } from '../Services/location.service';
-import { Location } from '../Models/Location';
+import { Location } from '../models/Location';
 
 @Component({
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.css']
 })
-export class LocationsComponent implements OnInit, OnDestroy {
-  constructor(private http: HttpClient, private ls: locationService) { }
+export class LocationsComponent implements OnInit {
+  constructor(private ls: locationService) { }
   _locations: Location[] = []
-  private sub!: Subscription;
 
   name: string = "";
   owner: string  = "";
   description: string = "";
 
   ngOnInit(): void {
-    this.sub = this.ls.GetLocations().subscribe(data => this._locations = data);
-  }
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this._locations = this.ls.GetLocations();
   }
 
+  save(){
+    this.description = this.description == "" ? "No se proporcionó una descripción." : this.description;
+    if(this.name != "" && this.owner != ""){
+      this._locations.push(
+        {
+          name: this.name,
+          owner: this.owner,
+          description: this.description
+        }
+      );
+    }
+    this.name = "";
+    this.owner = "";
+    this.description = "";
+  }
 }
